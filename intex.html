@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Swetha ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4e8b, #ff9a9e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+.card {
+  background: rgba(255,255,255,0.15);
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: fadeIn 2s ease;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 15px 10px;
+}
+
+#yes {
+  background: #2ecc71;
+  color: white;
+}
+
+#no {
+  background: #e74c3c;
+  color: white;
+  position: absolute;
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: scale(0.9);}
+  to {opacity:1; transform: scale(1);}
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(100vh); opacity: 0;}
+  50% {opacity: 1;}
+  100% {transform: translateY(-10vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b0c4e2f44.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>Swetha ❤️</h1>
+  <p>
+    Loving you was never a choice,<br>
+    it felt like destiny quietly finding me.<br><br>
+
+    In your smile, I find my calm.<br>
+    In your eyes, I see my forever.<br><br>
+
+    If love had a name,<br>
+    it would sound like yours.<br><br>
+
+    Will you be my Valentine today,<br>
+    tomorrow, and for all the days my heart beats? 💕
+  </p>
+
+  <button id="yes" onclick="yesClicked()">Yes 💖</button>
+  <button id="no" onmouseover="moveNo()">No 🙈</button>
+
+  <footer>
+    Forever yours,<br>
+    <strong>Hemanth</strong> 💌
+  </footer>
+</div>
+
+<script>
+function yesClicked() {
+  alert("My forever begins with you ❤️\nHappy Valentine’s Day Swetha 💕\n— Hemanth");
+}
+
+function moveNo() {
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
+  document.getElementById("no").style.left = x + "px";
+  document.getElementById("no").style.top = y + "px";
+}
+
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+// Create floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
